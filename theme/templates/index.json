@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Astrological Healing · 100% Natural Ittar",
+        "heading": "<p>Your sign,<br/><em>in a single drop.</em></p>",
+        "lead": "Twelve handcrafted ittars — one for every zodiac sign. Pure botanical attars blended to align with the energy of your stars.",
+        "cta_primary_label": "Find Your Sign",
+        "cta_primary_link": "/collections/all",
+        "cta_secondary_label": "Our Story",
+        "cta_secondary_link": "#about",
+        "meta": "12 ml · ₹650 · Alcohol-free · Long-lasting",
+        "wheel_center": "RUDRA"
+      }
+    },
+    "value-strip": {
+      "type": "value-strip",
+      "blocks": {
+        "b1": { "type": "value", "settings": { "title": "100% Natural",           "subtitle": "Pure botanical extracts" } },
+        "b2": { "type": "value", "settings": { "title": "Astrologically Crafted", "subtitle": "Aligned with your sign" } },
+        "b3": { "type": "value", "settings": { "title": "Alcohol-Free",           "subtitle": "Skin-safe ittar base" } },
+        "b4": { "type": "value", "settings": { "title": "Handcrafted in India",   "subtitle": "Small-batch quality" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "zodiacs": {
+      "type": "zodiac-collection",
+      "settings": {
+        "anchor": "zodiacs",
+        "eyebrow": "The Collection",
+        "heading": "Find Your Sign",
+        "lead": "Click a sign to explore its fragrance notes, ruling planet, and healing intent.",
+        "collection": "zodiac-ittars",
+        "products_to_show": 12
+      }
+    },
+    "about": {
+      "type": "about",
+      "settings": {
+        "anchor": "about",
+        "eyebrow": "Our Story",
+        "heading": "Fragrance, guided by the stars.",
+        "body": "<p>RUDRA was born from a simple belief — that scent is a quiet kind of medicine. For centuries, ittar has been used in India not only as perfume, but as ritual: to calm the mind, lift the spirit, and align the wearer with something larger than themselves.</p><p>We took that tradition and asked a new question. <em>What if a fragrance was made for you — not for the season, not for the trend, but for the energy of your sign?</em></p><p>Each RUDRA ittar is hand-blended in small batches using pure botanical extracts. No alcohol. No synthetic fillers. Just the notes most attuned to your zodiac, distilled into a 12 ml glass bottle.</p>",
+        "stamp": "RUDRA",
+        "stamp_sub": "PURE N NATURAL",
+        "stamp_by": "by RVK Ventures"
+      }
+    },
+    "how": {
+      "type": "how-to-use",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "step": "01", "title": "Pulse points",     "body": "Apply a single drop to wrists, neck, or behind the ears. Ittar is concentrated — a little goes a long way." } },
+        "s2": { "type": "step", "settings": { "step": "02", "title": "Warm, don't rub",  "body": "Press wrists gently together. Rubbing breaks the top notes — let the warmth of your skin open the fragrance." } },
+        "s3": { "type": "step", "settings": { "step": "03", "title": "Set an intention", "body": "Pause for a breath. Let the scent meet your day with purpose — courage, calm, clarity, whatever your sign asks for." } },
+        "s4": { "type": "step", "settings": { "step": "04", "title": "Store with care",  "body": "Keep upright, away from sunlight and heat. Stored well, an ittar deepens with time — the way wine does." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "What is ittar?", "answer": "Ittar (also spelled attar) is a traditional Indian perfume oil, distilled from flowers, herbs, woods, and spices on a sandalwood or paraffin base. It is alcohol-free and far more concentrated than modern eau de parfum — meaning a single drop carries." } },
+        "q2": { "type": "qa", "settings": { "question": "Should I go by my Sun sign or Moon sign?", "answer": "Most people choose by their Sun sign — the one tied to their birth date. If you follow Vedic astrology and know your Moon sign (rashi), it often resonates more deeply. Either works. Trust the one that pulls you." } },
+        "q3": { "type": "qa", "settings": { "question": "How long does one bottle last?", "answer": "A 12 ml bottle, used daily as a single-drop ritual, lasts roughly 3–4 months. Stored upright and away from sunlight, the fragrance deepens over time rather than fading." } },
+        "q4": { "type": "qa", "settings": { "question": "Is it safe for sensitive skin?", "answer": "Our ittars are alcohol-free and use natural botanical extracts on a gentle base. As with any concentrated fragrance, we recommend a patch test on the inner forearm before regular use." } },
+        "q5": { "type": "qa", "settings": { "question": "Can I gift one to someone?", "answer": "Yes — and it's one of the most thoughtful gifts you can give. The bottle arrives with the recipient's zodiac label, ready to present. Mention 'Gift' when you order and we'll wrap it accordingly." } },
+        "q6": { "type": "qa", "settings": { "question": "Do you ship across India?", "answer": "Yes, we ship pan-India. Standard dispatch is within 2–3 working days." } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"]
+    },
+    "contact": {
+      "type": "contact-cta",
+      "settings": {
+        "anchor": "contact",
+        "eyebrow": "Order Yours",
+        "heading": "Find your sign. Wear your stars.",
+        "lead": "Each bottle is hand-labelled and dispatched within 2–3 working days.",
+        "note": "12 ml · ₹650 per bottle · Pan-India shipping"
+      },
+      "blocks": {
+        "c1": { "type": "cta", "settings": { "label": "Shop All Zodiacs", "link": "/collections/all", "style": "btn-primary" } },
+        "c2": { "type": "cta", "settings": { "label": "Instagram",        "link": "https://instagram.com/", "style": "btn-ghost", "new_tab": true } }
+      },
+      "block_order": ["c1", "c2"]
+    }
+  },
+  "order": ["hero", "value-strip", "zodiacs", "about", "how", "faq", "contact"]
+}

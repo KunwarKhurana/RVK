@@ -1,0 +1,52 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "open_cart": "Open cart",
+      "open_menu": "Open menu",
+      "loading": "Loading"
+    },
+    "currency": { "symbol": "₹" },
+    "search": { "title": "Search", "placeholder": "Search" },
+    "404": {
+      "title": "Page not found",
+      "subtext": "The page you were looking for doesn't exist.",
+      "link": "Return to homepage"
+    },
+    "newsletter_form": { "newsletter_email": "Email" },
+    "social": { "links": "Follow us" }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "increase_quantity": "Increase quantity",
+      "decrease_quantity": "Decrease quantity",
+      "view_full_details": "View full details",
+      "from_price_html": "from {{ price }}",
+      "on_sale": "Sale"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your cart",
+      "empty": "Your cart is empty",
+      "continue_shopping": "Continue shopping",
+      "subtotal": "Subtotal",
+      "shipping_at_checkout": "Taxes and shipping calculated at checkout",
+      "checkout": "Checkout",
+      "remove": "Remove",
+      "item_quantity": "Quantity"
+    }
+  },
+  "collections": {
+    "general": {
+      "view_all": "View all",
+      "no_matches": "No products found",
+      "items_with_count": { "one": "{{ count }} product", "other": "{{ count }} products" }
+    }
+  }
+}

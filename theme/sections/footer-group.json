@@ -1,0 +1,28 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "explore": {
+          "type": "menu",
+          "settings": { "heading": "Explore" }
+        },
+        "order": {
+          "type": "menu",
+          "settings": { "heading": "Order" }
+        },
+        "fine": {
+          "type": "text",
+          "settings": {
+            "heading": "The fine print",
+            "body": "RUDRA ittars are wellness products inspired by traditional astrological practice. They are not intended to diagnose, treat, or cure any medical condition."
+          }
+        }
+      },
+      "block_order": ["explore", "order", "fine"]
+    }
+  },
+  "order": ["footer"]
+}

@@ -1,0 +1,29 @@
+<section class="collection">
+  <div class="container" style="max-width: 900px;">
+    <header class="section-head" style="text-align:left;">
+      <p class="eyebrow">Search</p>
+      <h1>{% if search.performed %}Results for "{{ search.terms | escape }}"{% else %}Search{% endif %}</h1>
+    </header>
+
+    <form action="{{ routes.search_url }}" method="get" role="search" style="margin-bottom:40px;">
+      <input
+        type="search"
+        name="q"
+        value="{{ search.terms | escape }}"
+        placeholder="{{ 'general.search.placeholder' | t }}"
+        style="width:100%; padding:14px 18px; border:1px solid var(--line); border-radius:999px; font-family:var(--sans); font-size:1rem; background:var(--white);">
+    </form>
+
+    {%- if search.performed and search.results.size > 0 -%}
+      <div class="zodiac-grid">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {%- render 'zodiac-card', product: item -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- elsif search.performed -%}
+      <p class="lead">No results. Try a different sign or keyword.</p>
+    {%- endif -%}
+  </div>
+</section>

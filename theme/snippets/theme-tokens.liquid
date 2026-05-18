@@ -1,0 +1,18 @@
+{%- comment -%}
+  Injects color tokens from theme settings as CSS custom properties.
+  Other token families (typography, radii, shadows) live in theme.css.
+{%- endcomment -%}
+<style>
+  :root {
+    --cream:      {{ settings.color_bg }};
+    --cream-2:    {{ settings.color_bg_alt }};
+    --white:      {{ settings.color_surface }};
+    --ink:        {{ settings.color_ink }};
+    --ink-soft:   {{ settings.color_ink_soft }};
+    --gold:       {{ settings.color_gold }};
+    --gold-deep:  {{ settings.color_gold_deep }};
+    --gold-soft:  {{ settings.color_gold_soft }};
+    --red:        {{ settings.color_red }};
+    --line:       {{ settings.color_line }};
+  }
+</style>

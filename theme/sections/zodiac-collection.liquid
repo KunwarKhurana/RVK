@@ -1,0 +1,53 @@
+<section id="{{ section.settings.anchor | default: 'zodiacs' }}" class="zodiacs">
+  <div class="container">
+    <header class="section-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading | default: 'Find Your Sign' }}</h2>
+      {%- if section.settings.lead != blank -%}
+        <p class="section-lead">{{ section.settings.lead }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- assign coll = collections[section.settings.collection] -%}
+    {%- if coll != blank and coll.products.size > 0 -%}
+      <div class="zodiac-grid">
+        {%- for product in coll.products limit: section.settings.products_to_show -%}
+          {%- render 'zodiac-card', product: product -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="zodiac-grid">
+        {%- comment -%} Placeholder grid until products are added in Shopify admin. {%- endcomment -%}
+        {%- assign placeholder_signs = 'Aries,Taurus,Gemini,Cancer,Leo,Virgo,Libra,Scorpio,Sagittarius,Capricorn,Aquarius,Pisces' | split: ',' -%}
+        {%- assign placeholder_glyphs = '♈,♉,♊,♋,♌,♍,♎,♏,♐,♑,♒,♓' | split: ',' -%}
+        {%- for sign in placeholder_signs -%}
+          <div class="zodiac-card" style="cursor:default;">
+            <div class="zodiac-glyph">{{ placeholder_glyphs[forloop.index0] }}</div>
+            <div class="zodiac-name">{{ sign }}</div>
+            <div class="zodiac-dates" style="opacity:.6;">Product not added yet</div>
+          </div>
+        {%- endfor -%}
+      </div>
+      <p class="section-lead" style="text-align:center; margin-top:32px;">
+        <em>This grid will populate automatically once you add zodiac products to the chosen collection in Shopify admin.</em>
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zodiac collection",
+  "settings": [
+    { "type": "text",       "id": "anchor",   "label": "URL anchor",  "default": "zodiacs" },
+    { "type": "text",       "id": "eyebrow",  "label": "Eyebrow",     "default": "The Collection" },
+    { "type": "text",       "id": "heading",  "label": "Heading",     "default": "Find Your Sign" },
+    { "type": "text",       "id": "lead",     "label": "Lead",        "default": "Click a sign to explore its fragrance notes, ruling planet, and healing intent." },
+    { "type": "collection", "id": "collection", "label": "Collection (e.g. zodiac-ittars)" },
+    { "type": "range",      "id": "products_to_show", "label": "Products to show", "min": 4, "max": 24, "step": 1, "default": 12 }
+  ],
+  "presets": [{ "name": "Zodiac collection" }]
+}
+{% endschema %}

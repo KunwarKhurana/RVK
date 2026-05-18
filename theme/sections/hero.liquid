@@ -1,0 +1,52 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <p class="lead">{{ section.settings.lead }}</p>
+      <div class="hero-ctas">
+        {%- if section.settings.cta_primary_label != blank -%}
+          <a href="{{ section.settings.cta_primary_link | default: '#zodiacs' }}" class="btn btn-primary">
+            {{ section.settings.cta_primary_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.cta_secondary_label != blank -%}
+          <a href="{{ section.settings.cta_secondary_link | default: '#about' }}" class="btn btn-ghost">
+            {{ section.settings.cta_secondary_label }}
+          </a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.meta != blank -%}
+        <p class="hero-meta">{{ section.settings.meta }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="zodiac-wheel">
+        {%- assign glyphs = '♈,♉,♊,♋,♌,♍,♎,♏,♐,♑,♒,♓' | split: ',' -%}
+        {%- for g in glyphs -%}
+          <span style="--i:{{ forloop.index0 }}">{{ g }}</span>
+        {%- endfor -%}
+        <div class="wheel-center">{{ section.settings.wheel_center | default: 'RUDRA' }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",             "label": "Eyebrow",       "default": "Astrological Healing · 100% Natural Ittar" },
+    { "type": "richtext", "id": "heading",             "label": "Heading",       "default": "<p>Your sign,<br/><em>in a single drop.</em></p>" },
+    { "type": "textarea", "id": "lead",                "label": "Lead paragraph","default": "Twelve handcrafted ittars — one for every zodiac sign. Pure botanical attars blended to align with the energy of your stars." },
+    { "type": "text",     "id": "cta_primary_label",   "label": "Primary CTA label", "default": "Find Your Sign" },
+    { "type": "url",      "id": "cta_primary_link",    "label": "Primary CTA link" },
+    { "type": "text",     "id": "cta_secondary_label", "label": "Secondary CTA label", "default": "Our Story" },
+    { "type": "url",      "id": "cta_secondary_link",  "label": "Secondary CTA link" },
+    { "type": "text",     "id": "meta",                "label": "Meta line",     "default": "12 ml · ₹650 · Alcohol-free · Long-lasting" },
+    { "type": "text",     "id": "wheel_center",        "label": "Wheel center text", "default": "RUDRA" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

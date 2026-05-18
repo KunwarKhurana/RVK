@@ -1,0 +1,84 @@
+<header class="site-header" role="banner">
+  <div class="container nav">
+    <a href="{{ routes.root_url }}" class="brand-mark">
+      {%- if settings.brand_logo != blank -%}
+        <img
+          src="{{ settings.brand_logo | image_url: width: 76 }}"
+          alt="{{ shop.name | escape }}"
+          class="brand-pinwheel"
+          width="38" height="38"
+          loading="eager">
+      {%- endif -%}
+      <span class="brand-text">
+        <span class="brand-name">{{ section.settings.brand_name | default: 'RUDRA' }}</span>
+        <span class="brand-sub">{{ section.settings.brand_tagline | default: 'PURE N NATURAL' }}</span>
+      </span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        {%- for link in section.settings.menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="{{ routes.cart_url }}" class="cart-toggle" data-drawer-open aria-label="{{ 'general.accessibility.open_cart' | t }}">
+        {%- render 'icon-cart' -%}
+        <span class="cart-count" {% if cart.item_count == 0 %}data-empty{% endif %}>{{ cart.item_count }}</span>
+      </a>
+      {%- if section.settings.show_cta -%}
+        <a href="{{ section.settings.cta_link | default: '#zodiacs' }}" class="btn btn-primary btn-sm">
+          {{ section.settings.cta_label | default: 'Shop Zodiacs' }}
+        </a>
+      {%- endif -%}
+      <button class="nav-toggle" aria-label="{{ 'general.accessibility.open_menu' | t }}" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "RUDRA"
+    },
+    {
+      "type": "text",
+      "id": "brand_tagline",
+      "label": "Brand tagline (small caps)",
+      "default": "PURE N NATURAL"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show header CTA button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Shop Zodiacs"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ]
+}
+{% endschema %}

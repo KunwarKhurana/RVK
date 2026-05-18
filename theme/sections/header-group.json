@@ -1,0 +1,17 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "brand_name": "RUDRA",
+        "brand_tagline": "PURE N NATURAL",
+        "show_cta": true,
+        "cta_label": "Shop Zodiacs",
+        "cta_link": "/collections/all"
+      }
+    }
+  },
+  "order": ["header"]
+}

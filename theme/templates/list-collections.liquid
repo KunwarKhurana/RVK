@@ -1,0 +1,21 @@
+<section class="collection">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">Catalog</p>
+      <h1>All Collections</h1>
+    </header>
+    <div class="zodiac-grid">
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}" class="zodiac-card">
+          {%- if collection.image -%}
+            <div class="zodiac-card-media">
+              <img src="{{ collection.image | image_url: width: 420 }}" alt="{{ collection.title | escape }}" width="420" height="420" loading="lazy">
+            </div>
+          {%- endif -%}
+          <div class="zodiac-name">{{ collection.title }}</div>
+          <span class="more">View →</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

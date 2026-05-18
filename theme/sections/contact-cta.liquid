@@ -1,0 +1,64 @@
+<section id="{{ section.settings.anchor | default: 'contact' }}" class="contact-cta">
+  <div class="container contact-cta-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h2>{{ section.settings.heading | default: 'Find your sign. Wear your stars.' }}</h2>
+    {%- if section.settings.lead != blank -%}
+      <p class="lead" style="margin-left:auto;margin-right:auto;">{{ section.settings.lead }}</p>
+    {%- endif -%}
+    <div class="contact-cta-ctas">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link }}" class="btn {{ block.settings.style | default: 'btn-primary' }} btn-lg" {% if block.settings.new_tab %}target="_blank" rel="noopener"{% endif %} {{ block.shopify_attributes }}>
+          {{ block.settings.label }}
+        </a>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.note != blank -%}
+      <p class="contact-cta-note">{{ section.settings.note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact CTA",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text",     "id": "anchor",  "label": "URL anchor", "default": "contact" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow",    "default": "Order Yours" },
+    { "type": "text",     "id": "heading", "label": "Heading",    "default": "Find your sign. Wear your stars." },
+    { "type": "textarea", "id": "lead",    "label": "Lead",       "default": "Each bottle is hand-labelled and dispatched within 2–3 working days." },
+    { "type": "text",     "id": "note",    "label": "Note",       "default": "12 ml · ₹650 per bottle · Pan-India shipping" }
+  ],
+  "blocks": [
+    {
+      "type": "cta",
+      "name": "Button",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "url",  "id": "link",  "label": "Link" },
+        {
+          "type": "select", "id": "style", "label": "Style",
+          "options": [
+            { "value": "btn-primary", "label": "Primary" },
+            { "value": "btn-ghost",   "label": "Ghost" },
+            { "value": "btn-gold",    "label": "Gold" }
+          ],
+          "default": "btn-primary"
+        },
+        { "type": "checkbox", "id": "new_tab", "label": "Open in new tab", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact CTA",
+      "blocks": [
+        { "type": "cta", "settings": { "label": "Shop All Zodiacs", "link": "/collections/all", "style": "btn-primary" } },
+        { "type": "cta", "settings": { "label": "Instagram DM",     "link": "https://instagram.com/", "style": "btn-ghost", "new_tab": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

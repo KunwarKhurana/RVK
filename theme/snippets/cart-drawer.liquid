@@ -1,0 +1,32 @@
+<div class="drawer-backdrop" data-drawer-close aria-hidden="true"></div>
+
+<aside id="CartDrawer" class="drawer" role="dialog" aria-modal="true" aria-label="{{ 'cart.general.title' | t }}" aria-hidden="true">
+  <header class="drawer-head">
+    <h3>{{ 'cart.general.title' | t }}</h3>
+    <button type="button" class="drawer-close" data-drawer-close aria-label="{{ 'general.accessibility.close' | t }}">
+      {%- render 'icon-close' -%}
+    </button>
+  </header>
+
+  <div class="drawer-body">
+    <div class="drawer-empty">
+      <p>{{ 'cart.general.empty' | t }}</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn-ghost btn-sm" data-drawer-close>
+        {{ 'cart.general.continue_shopping' | t }}
+      </a>
+    </div>
+  </div>
+
+  <footer class="drawer-foot">
+    <div class="drawer-subtotal">
+      <span>{{ 'cart.general.subtotal' | t }}</span>
+      <span data-drawer-subtotal>{{ cart.total_price | money }}</span>
+    </div>
+    <p class="drawer-note">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+    <form action="{{ routes.cart_url }}" method="post">
+      <button type="submit" name="checkout" class="btn btn-primary btn-lg btn-block" data-drawer-checkout {% if cart.item_count == 0 %}disabled{% endif %}>
+        {{ 'cart.general.checkout' | t }}
+      </button>
+    </form>
+  </footer>
+</aside>

@@ -1,0 +1,53 @@
+<section id="{{ section.settings.anchor | default: 'faq' }}" class="faq">
+  <div class="container">
+    <header class="section-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading | default: 'FAQ' }}</h2>
+    </header>
+    <div class="faq-list">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }}</summary>
+          <p>{{ block.settings.answer }}</p>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "anchor",  "label": "URL anchor", "default": "faq" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow",    "default": "Questions" },
+    { "type": "text", "id": "heading", "label": "Heading",    "default": "FAQ" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Q&A",
+      "settings": [
+        { "type": "text",     "id": "question", "label": "Question" },
+        { "type": "textarea", "id": "answer",   "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "What is ittar?", "answer": "Ittar (also spelled attar) is a traditional Indian perfume oil, distilled from flowers, herbs, woods, and spices on a sandalwood or paraffin base. It is alcohol-free and far more concentrated than modern eau de parfum — meaning a single drop carries." } },
+        { "type": "qa", "settings": { "question": "Should I go by my Sun sign or Moon sign?", "answer": "Most people choose by their Sun sign — the one tied to their birth date. If you follow Vedic astrology and know your Moon sign (rashi), it often resonates more deeply. Either works. Trust the one that pulls you." } },
+        { "type": "qa", "settings": { "question": "How long does one bottle last?", "answer": "A 12 ml bottle, used daily as a single-drop ritual, lasts roughly 3–4 months. Stored upright and away from sunlight, the fragrance deepens over time rather than fading." } },
+        { "type": "qa", "settings": { "question": "Is it safe for sensitive skin?", "answer": "Our ittars are alcohol-free and use natural botanical extracts on a gentle base. As with any concentrated fragrance, we recommend a patch test on the inner forearm before regular use." } },
+        { "type": "qa", "settings": { "question": "Can I gift one to someone?", "answer": "Yes — and it's one of the most thoughtful gifts you can give. The bottle arrives with the recipient's zodiac label, ready to present. Mention \"Gift\" when you order and we'll wrap it accordingly." } },
+        { "type": "qa", "settings": { "question": "Do you ship across India?", "answer": "Yes, we ship pan-India. Standard dispatch is within 2–3 working days." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

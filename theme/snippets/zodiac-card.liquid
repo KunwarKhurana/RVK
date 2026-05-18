@@ -1,0 +1,43 @@
+{%- comment -%}
+  Renders a single zodiac product as a card.
+  Required: product
+  Optional: image_style ('product_image' | 'glyph') — defaults to settings.card_image_style
+{%- endcomment -%}
+
+{%- liquid
+  assign image_style = image_style | default: settings.card_image_style
+  assign glyph = product.metafields.custom.zodiac_glyph
+  assign hindi = product.metafields.custom.hindi_name
+  assign dates = product.metafields.custom.date_range
+  assign mood  = product.metafields.custom.mood
+-%}
+
+<a href="{{ product.url }}" class="zodiac-card" aria-label="View {{ product.title | escape }} ittar">
+  {%- if image_style == 'product_image' and product.featured_image -%}
+    <div class="zodiac-card-media">
+      <img
+        src="{{ product.featured_image | image_url: width: 420 }}"
+        alt="{{ product.featured_image.alt | default: product.title | escape }}"
+        width="420" height="420"
+        loading="lazy">
+    </div>
+  {%- elsif glyph != blank -%}
+    <div class="zodiac-glyph">{{ glyph }}</div>
+  {%- endif -%}
+
+  {%- if hindi != blank -%}
+    <div class="zodiac-hindi" lang="hi">{{ hindi }}</div>
+  {%- endif -%}
+
+  <div class="zodiac-name">{{ product.title | remove: ' Ittar' }}</div>
+
+  {%- if dates != blank -%}
+    <div class="zodiac-dates">{{ dates }}</div>
+  {%- endif -%}
+
+  {%- if mood != blank -%}
+    <div class="zodiac-mood">{{ mood }}</div>
+  {%- endif -%}
+
+  <span class="more">View Details →</span>
+</a>

@@ -1,0 +1,186 @@
+{%- liquid
+  assign product = product
+  assign current_variant = product.selected_or_first_available_variant
+  assign hindi = product.metafields.custom.hindi_name
+  assign glyph = product.metafields.custom.zodiac_glyph
+  assign tagline = product.metafields.custom.tagline
+  assign intro = product.metafields.custom.intro
+  assign dates = product.metafields.custom.date_range
+  assign element = product.metafields.custom.element
+  assign planet = product.metafields.custom.ruling_planet
+  assign quality = product.metafields.custom.quality
+  assign mood = product.metafields.custom.mood
+  assign notes_value = product.metafields.custom.fragrance_notes.value
+  assign benefits_value = product.metafields.custom.healing_intent.value
+-%}
+
+<section class="product" data-product data-variants='{{ product.variants | json | escape }}'>
+  <div class="container product-grid">
+
+    <div class="product-media">
+      <div class="product-media-main">
+        {%- if current_variant.featured_image -%}
+          <img
+            src="{{ current_variant.featured_image | image_url: width: 900 }}"
+            alt="{{ current_variant.featured_image.alt | default: product.title | escape }}"
+            width="900" height="1125"
+            loading="eager">
+        {%- elsif product.featured_image -%}
+          <img
+            src="{{ product.featured_image | image_url: width: 900 }}"
+            alt="{{ product.featured_image.alt | default: product.title | escape }}"
+            width="900" height="1125"
+            loading="eager">
+        {%- else -%}
+          <div class="product-media-fallback">{{ glyph | default: '✦' }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- if product.images.size > 1 -%}
+        <div class="product-media-thumbs">
+          {%- for image in product.images limit: 4 -%}
+            <button
+              type="button"
+              class="product-media-thumb {% if forloop.first %}is-active{% endif %}"
+              data-full="{{ image | image_url: width: 900 }}"
+              aria-label="Show image {{ forloop.index }}">
+              <img src="{{ image | image_url: width: 220 }}" alt="" loading="lazy" width="220" height="220">
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product-info">
+      <div class="product-eyebrow-row">
+        {%- if glyph != blank -%}<span class="product-glyph" aria-hidden="true">{{ glyph }}</span>{%- endif -%}
+        {%- if hindi != blank -%}<span class="product-hindi" lang="hi">{{ hindi }}</span>{%- endif -%}
+      </div>
+
+      <h1 class="product-title">{{ product.title }}</h1>
+
+      {%- if tagline != blank -%}
+        <p class="product-tagline">{{ tagline }}</p>
+      {%- endif -%}
+
+      {%- if dates != blank -%}
+        <p class="product-dates">{{ dates }}</p>
+      {%- endif -%}
+
+      <div class="product-price">
+        <span class="price" data-product-price>{{ current_variant.price | money }}</span>
+        <span class="compare" data-product-compare {% unless current_variant.compare_at_price and current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>
+          {{ current_variant.compare_at_price | money }}
+        </span>
+        <span class="unit">{{ section.settings.unit_text | default: '12 ml · pan-India shipping' }}</span>
+      </div>
+
+      {%- if intro != blank -%}
+        <div class="product-intro">{{ intro }}</div>
+      {%- elsif product.description != blank -%}
+        <div class="product-intro">{{ product.description }}</div>
+      {%- endif -%}
+
+      {%- if element != blank or planet != blank or quality != blank -%}
+        <dl class="product-meta">
+          {%- if element != blank -%}<div><dt>Element</dt><dd>{{ element }}</dd></div>{%- endif -%}
+          {%- if planet  != blank -%}<div><dt>Planet</dt><dd>{{ planet }}</dd></div>{%- endif -%}
+          {%- if quality != blank -%}<div><dt>Quality</dt><dd>{{ quality }}</dd></div>{%- endif -%}
+        </dl>
+      {%- endif -%}
+
+      {%- if notes_value != blank -%}
+        <div class="product-section">
+          <h4>Fragrance Notes</h4>
+          <div class="notes-list">
+            {%- for note in notes_value -%}
+              <span>{{ note }}</span>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if mood != blank -%}
+        <div class="product-section">
+          <h4>Mood</h4>
+          <p style="margin:0;font-style:italic;color:var(--ink-soft);">{{ mood }}</p>
+        </div>
+      {%- endif -%}
+
+      {%- if benefits_value != blank -%}
+        <div class="product-section">
+          <h4>Healing Intent</h4>
+          <ul class="benefits-list">
+            {%- for benefit in benefits_value -%}
+              <li>{{ benefit }}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" class="product-form" data-product-form>
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+        {%- if product.has_only_default_variant == false -%}
+          <div class="product-options">
+            {%- for option in product.options_with_values -%}
+              <div class="option-row">
+                <label>{{ option.name }}</label>
+                <div class="option-values" role="radiogroup" aria-label="{{ option.name }}">
+                  {%- for value in option.values -%}
+                    {%- assign input_id = 'opt-' | append: option.position | append: '-' | append: forloop.index -%}
+                    <label class="option-pill">
+                      <input
+                        type="radio"
+                        id="{{ input_id }}"
+                        name="options[{{ option.name }}]"
+                        value="{{ value | escape }}"
+                        {% if option.selected_value == value %}checked{% endif %}>
+                      <span>{{ value }}</span>
+                    </label>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="qty-row">
+          <span class="option-row" style="margin:0;">
+            <label>{{ 'products.product.quantity' | t }}</label>
+          </span>
+          <div class="qty">
+            <button type="button" data-qty-dec aria-label="{{ 'products.product.decrease_quantity' | t }}">−</button>
+            <input type="number" name="quantity" min="1" value="1" aria-label="{{ 'products.product.quantity' | t }}">
+            <button type="button" data-qty-inc aria-label="{{ 'products.product.increase_quantity' | t }}">+</button>
+          </div>
+        </div>
+
+        <div class="product-cta">
+          <button type="submit" class="btn btn-primary btn-lg btn-block" {% unless current_variant.available %}disabled{% endunless %}>
+            {%- if current_variant.available -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        </div>
+      </form>
+
+      <div class="product-trust">
+        <span>100% natural · alcohol-free</span>
+        <span>Pan-India shipping</span>
+        <span>Hand-labelled in India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "text", "id": "unit_text", "label": "Unit / detail text (beside price)", "default": "12 ml · pan-India shipping" }
+  ]
+}
+{% endschema %}

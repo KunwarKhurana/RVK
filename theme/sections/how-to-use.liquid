@@ -1,0 +1,53 @@
+<section id="{{ section.settings.anchor | default: 'how' }}" class="how">
+  <div class="container">
+    <header class="section-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading | default: 'How to Use' }}</h2>
+    </header>
+    <div class="how-grid">
+      {%- for block in section.blocks -%}
+        <article {{ block.shopify_attributes }}>
+          <span class="step">{{ block.settings.step }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How to use",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "anchor",  "label": "URL anchor", "default": "how" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow",    "default": "Ritual" },
+    { "type": "text", "id": "heading", "label": "Heading",    "default": "How to Use" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text",     "id": "step",  "label": "Step number", "default": "01" },
+        { "type": "text",     "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "body",  "label": "Body" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How to use",
+      "blocks": [
+        { "type": "step", "settings": { "step": "01", "title": "Pulse points",     "body": "Apply a single drop to wrists, neck, or behind the ears. Ittar is concentrated — a little goes a long way." } },
+        { "type": "step", "settings": { "step": "02", "title": "Warm, don't rub",  "body": "Press wrists gently together. Rubbing breaks the top notes — let the warmth of your skin open the fragrance." } },
+        { "type": "step", "settings": { "step": "03", "title": "Set an intention", "body": "Pause for a breath. Let the scent meet your day with purpose — courage, calm, clarity, whatever your sign asks for." } },
+        { "type": "step", "settings": { "step": "04", "title": "Store with care",  "body": "Keep upright, away from sunlight and heat. Stored well, an ittar deepens with time — the way wine does." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

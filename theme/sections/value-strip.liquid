@@ -1,0 +1,38 @@
+<section class="strip">
+  <div class="container strip-grid">
+    {%- for block in section.blocks -%}
+      <div {{ block.shopify_attributes }}>
+        <strong>{{ block.settings.title }}</strong>
+        <span>{{ block.settings.subtitle }}</span>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Value strip",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "title",    "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Value strip",
+      "blocks": [
+        { "type": "value", "settings": { "title": "100% Natural",           "subtitle": "Pure botanical extracts" } },
+        { "type": "value", "settings": { "title": "Astrologically Crafted", "subtitle": "Aligned with your sign" } },
+        { "type": "value", "settings": { "title": "Alcohol-Free",           "subtitle": "Skin-safe ittar base" } },
+        { "type": "value", "settings": { "title": "Handcrafted in India",   "subtitle": "Small-batch quality" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

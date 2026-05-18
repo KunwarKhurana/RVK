@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "unit_text": "12 ml · pan-India shipping"
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "eyebrow": "Continue exploring",
+        "heading": "Other zodiacs",
+        "collection": "zodiac-ittars",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": ["main", "related"]
+}

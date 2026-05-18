@@ -1,0 +1,19 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_bg": "#FAF6E9",
+      "color_bg_alt": "#F2EBD3",
+      "color_surface": "#FFFCF3",
+      "color_ink": "#2A2418",
+      "color_ink_soft": "#5C5440",
+      "color_gold": "#C9A227",
+      "color_gold_deep": "#8B6F1A",
+      "color_gold_soft": "#E6D29A",
+      "color_red": "#8B1538",
+      "color_line": "#E5DCBE",
+      "card_image_style": "product_image",
+      "footer_fine_print": "RUDRA ittars are wellness products inspired by traditional astrological practice. They are not intended to diagnose, treat, or cure any medical condition."
+    }
+  }
+}

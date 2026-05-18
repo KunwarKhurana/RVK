@@ -1,0 +1,77 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "RUDRA",
+    "theme_version": "1.0.0",
+    "theme_author": "RVK Ventures",
+    "theme_documentation_url": "https://github.com/KunwarKhurana/RVK",
+    "theme_support_email": "hello@rudra.example"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "32 x 32 px recommended"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand_logo",
+        "label": "Brand logo (header)",
+        "info": "Small pinwheel/mark; appears next to RUDRA wordmark. PNG with transparent background, ~512x512."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_bg", "label": "Page background", "default": "#FAF6E9" },
+      { "type": "color", "id": "color_bg_alt", "label": "Alternate section background", "default": "#F2EBD3" },
+      { "type": "color", "id": "color_surface", "label": "Card / surface", "default": "#FFFCF3" },
+      { "type": "color", "id": "color_ink", "label": "Primary text / dark", "default": "#2A2418" },
+      { "type": "color", "id": "color_ink_soft", "label": "Muted text", "default": "#5C5440" },
+      { "type": "color", "id": "color_gold", "label": "Gold accent", "default": "#C9A227" },
+      { "type": "color", "id": "color_gold_deep", "label": "Gold deep", "default": "#8B6F1A" },
+      { "type": "color", "id": "color_gold_soft", "label": "Gold soft", "default": "#E6D29A" },
+      { "type": "color", "id": "color_red", "label": "Deep red (sparingly)", "default": "#8B1538" },
+      { "type": "color", "id": "color_line", "label": "Hairline / border", "default": "#E5DCBE" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Fonts are loaded from Google Fonts: Cormorant Garamond (serif), Inter (sans), Tiro Devanagari Sanskrit (Hindi). To change fonts, edit theme/layout/theme.liquid and theme/assets/theme.css."
+      }
+    ]
+  },
+  {
+    "name": "Product cards",
+    "settings": [
+      {
+        "type": "select",
+        "id": "card_image_style",
+        "label": "Zodiac card image style",
+        "options": [
+          { "value": "glyph", "label": "Unicode glyph (fallback)" },
+          { "value": "product_image", "label": "Product image (recommended once photos are added)" }
+        ],
+        "default": "product_image"
+      }
+    ]
+  },
+  {
+    "name": "Footer fine print",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "footer_fine_print",
+        "label": "Footer disclaimer",
+        "default": "RUDRA ittars are wellness products inspired by traditional astrological practice. They are not intended to diagnose, treat, or cure any medical condition."
+      }
+    ]
+  }
+]
