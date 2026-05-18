@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="orrery.js"></script>
 </head>
 <body class="page-home">
 
@@ -71,6 +72,40 @@
               <a href="collection/" class="btn btn-primary">Open the Atlas</a>
               <a href="story/" class="btn-link">Read the story →</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORRERY (3D ring of twelve) -->
+    <section class="orrery-section" aria-label="The wheel of twelve">
+      <div class="wrap">
+        <header class="section-head" style="margin-bottom: var(--s4);">
+          <p class="num">№ 00</p>
+          <div>
+            <p class="eyebrow">The Wheel of Twelve</p>
+            <h2 style="font-size: clamp(1.5rem, 2.8vw, 2.2rem);"><em>A live orrery.</em> Click a sign to enter.</h2>
+          </div>
+        </header>
+      </div>
+
+      <div class="orrery" data-orrery>
+        <canvas class="orrery-canvas" aria-hidden="true"></canvas>
+        <div class="orrery-fallback" role="img" aria-label="Zodiac wheel">
+          <div class="orrery-fallback-ring">
+            <a href="zodiacs/aries/"       style="--i:0">♈<span>Aries</span></a>
+            <a href="zodiacs/taurus/"      style="--i:1">♉<span>Taurus</span></a>
+            <a href="zodiacs/gemini/"      style="--i:2">♊<span>Gemini</span></a>
+            <a href="zodiacs/cancer/"      style="--i:3">♋<span>Cancer</span></a>
+            <a href="zodiacs/leo/"         style="--i:4">♌<span>Leo</span></a>
+            <a href="zodiacs/virgo/"       style="--i:5">♍<span>Virgo</span></a>
+            <a href="zodiacs/libra/"       style="--i:6">♎<span>Libra</span></a>
+            <a href="zodiacs/scorpio/"     style="--i:7">♏<span>Scorpio</span></a>
+            <a href="zodiacs/sagittarius/" style="--i:8">♐<span>Sagittarius</span></a>
+            <a href="zodiacs/capricorn/"   style="--i:9">♑<span>Capricorn</span></a>
+            <a href="zodiacs/aquarius/"    style="--i:10">♒<span>Aquarius</span></a>
+            <a href="zodiacs/pisces/"      style="--i:11">♓<span>Pisces</span></a>
+            <span class="orrery-fallback-center">RUDRA</span>
           </div>
         </div>
       </div>

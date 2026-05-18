@@ -59,8 +59,36 @@
       </div>
     </section>
 
+    <!-- LIVE CAROUSEL — auto-advances through all 12 -->
+    <section class="live-carousel" aria-label="Live atlas">
+      <div class="wrap" style="text-align:center; padding-bottom: var(--s6);">
+        <p class="eyebrow" style="justify-content:center;">A live reading</p>
+        <h2 style="font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-top: var(--s2);"><em>The atlas, in turn.</em></h2>
+      </div>
+
+      <div class="live-carousel-stage" data-live-carousel>
+        <!-- slides rendered by JS into here -->
+        <div class="live-carousel-controls" aria-hidden="false">
+          <button type="button" data-prev aria-label="Previous sign">‹</button>
+          <button type="button" data-next aria-label="Next sign">›</button>
+        </div>
+      </div>
+
+      <div class="live-carousel-foot">
+        <span data-live-index>01 / 12</span>
+        <div class="progress" aria-hidden="true"><div class="progress-bar" data-progress></div></div>
+        <button type="button" class="btn-link" style="font-size:0.7rem; padding:0;" data-toggle>Pause</button>
+      </div>
+    </section>
+
     <section class="section">
       <div class="wrap">
+        <header class="section-head" style="grid-template-columns: 1fr;">
+          <div>
+            <p class="num">№ 02</p>
+            <h2 style="margin-top: var(--s2); font-size: clamp(1.5rem, 2.4vw, 1.9rem);"><em>Or, the whole atlas at once.</em></h2>
+          </div>
+        </header>
         <div class="collection-list">
 
           <a class="collection-row" href="../zodiacs/aries/">
