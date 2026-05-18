@@ -260,6 +260,7 @@ function cardHTML(z) {
       <div class="zodiac-name">${z.name}</div>
       <div class="zodiac-dates">${z.dates}</div>
       <div class="zodiac-mood">${z.mood}</div>
+      <div class="zodiac-price">₹650 <span>· 12 ml</span></div>
       <span class="more">View Details →</span>
     </article>
   `;
@@ -272,9 +273,6 @@ const modal = document.getElementById('zodiacModal');
 const modalBody = document.getElementById('modalBody');
 
 function modalHTML(z) {
-  const orderMsg = encodeURIComponent(
-    `Hi RUDRA, I'd like to order the ${z.name} (${z.hindi}) ittar — 12 ml, ₹650.`
-  );
   return `
     <div class="modal-header">
       <div class="modal-glyph">${z.glyph}</div>
@@ -311,13 +309,47 @@ function modalHTML(z) {
         </ul>
       </div>
 
+      <div class="modal-price-row">
+        <span class="modal-price">₹650</span>
+        <span class="modal-price-sub">12 ml &middot; alcohol-free</span>
+      </div>
+
       <div class="modal-cta">
-        <a href="https://wa.me/91XXXXXXXXXX?text=${orderMsg}" class="btn btn-primary btn-lg">Order ${z.name} on WhatsApp</a>
+        <button type="button" class="btn btn-primary btn-lg" data-add-cart data-name="${z.name}">Add to Cart</button>
         <button class="btn btn-ghost btn-lg" data-close>Close</button>
       </div>
-      <p style="text-align:center;margin-top:14px;font-size:0.82rem;color:var(--ink-soft);">12 ml &middot; ₹650 &middot; Pan-India shipping</p>
+      <p style="text-align:center;margin-top:14px;font-size:0.82rem;color:var(--ink-soft);">Pan-India shipping &middot; Dispatched in 2–3 days</p>
     </div>
   `;
+}
+
+// ---------- Cart count (presentational) ----------
+let cartCount = 0;
+const cartCountEl = document.getElementById('cartCount');
+function bumpCart() {
+  cartCount += 1;
+  if (cartCountEl) {
+    cartCountEl.textContent = cartCount;
+    cartCountEl.classList.remove('bump');
+    void cartCountEl.offsetWidth;
+    cartCountEl.classList.add('bump');
+  }
+}
+
+// Toast on add
+let toastTimer;
+function showToast(msg) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
 }
 
 function openModal(key) {
@@ -350,6 +382,14 @@ grid.addEventListener('keydown', (e) => {
 
 modal.addEventListener('click', (e) => {
   if (e.target.matches('[data-close]')) closeModal();
+  if (e.target.matches('[data-add-cart]')) {
+    bumpCart();
+    const name = e.target.dataset.name || 'ittar';
+    showToast(`✦ ${name} added to cart`);
+    e.target.textContent = 'Added ✓';
+    e.target.disabled = true;
+    setTimeout(() => { e.target.textContent = 'Add to Cart'; e.target.disabled = false; }, 1400);
+  }
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !modal.hidden) closeModal();
