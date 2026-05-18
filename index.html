@@ -3,253 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RUDRA — Astrological Healing Ittar | by RVK Ventures</title>
-  <meta name="description" content="Pure, natural ittars handcrafted for every zodiac sign. 12 fragrances aligned with the energy of your stars. By RUDRA — Pure N Natural, by RVK Ventures." />
+  <title>RUDRA — An ittar atlas for the twelve signs · RVK Ventures</title>
+  <meta name="description" content="Twelve handcrafted ittars, one for every zodiac sign. Pressed by hand, sealed in glass, kept honest. RUDRA · Pure n Natural · by RVK Ventures." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page-home">
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="#" class="brand-mark">
-        <img src="assets/rvk-logo.png" alt="" class="brand-pinwheel" onerror="this.style.display='none'" />
-        <span class="brand-text">
-          <span class="brand-name">RUDRA</span>
-          <span class="brand-sub">PURE N NATURAL</span>
-        </span>
+    <div class="nav">
+      <a href="./" class="brand">
+        <span class="brand-name">RUDRA</span>
+        <span class="brand-sub">Pure n Natural</span>
       </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#zodiacs">Zodiacs</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#how">How to Use</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="collection/">Collection</a>
+        <a href="story/">Story</a>
+        <a href="ritual/">Ritual</a>
+        <a href="contact/">Contact</a>
       </nav>
-      <a href="#zodiacs" class="btn btn-primary btn-sm">Shop Zodiacs</a>
-      <button class="cart-icon" type="button" aria-label="View cart">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 4h2.2l2 12.2a2 2 0 0 0 2 1.8h8.6a2 2 0 0 0 2-1.7l1.4-7.8H6.5"/>
-          <circle cx="10" cy="21" r="1.2"/><circle cx="18" cy="21" r="1.2"/>
-        </svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="cart-icon" type="button" aria-label="View cart">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 4h2.2l2 12.2a2 2 0 0 0 2 1.8h8.6a2 2 0 0 0 2-1.7l1.4-7.8H6.5"/>
+            <circle cx="10" cy="21" r="1.1"/><circle cx="18" cy="21" r="1.1"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- HERO -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Astrological Healing · 100% Natural Ittar</p>
-          <h1>Your sign,<br/><em>in a single drop.</em></h1>
-          <p class="lead">Twelve handcrafted ittars — one for every zodiac sign. Pure botanical attars blended to align with the energy of your stars.</p>
-          <div class="hero-ctas">
-            <a href="#zodiacs" class="btn btn-primary">Find Your Sign</a>
-            <a href="#about" class="btn btn-ghost">Our Story</a>
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-marginalia">
+            Edition No. I · MMXXVI · An Ittar Atlas
           </div>
-          <p class="hero-meta">12 ml &middot; ₹650 &middot; Alcohol-free &middot; Long-lasting</p>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="zodiac-wheel">
-            <span style="--i:0">♈</span>
-            <span style="--i:1">♉</span>
-            <span style="--i:2">♊</span>
-            <span style="--i:3">♋</span>
-            <span style="--i:4">♌</span>
-            <span style="--i:5">♍</span>
-            <span style="--i:6">♎</span>
-            <span style="--i:7">♏</span>
-            <span style="--i:8">♐</span>
-            <span style="--i:9">♑</span>
-            <span style="--i:10">♒</span>
-            <span style="--i:11">♓</span>
-            <div class="wheel-center">RUDRA</div>
+          <div>
+            <p class="eyebrow-no-rule">(an ittar atlas for the twelve signs)</p>
+            <h1 class="hero-title">
+              Your sign,<br/>
+              <em>in a single drop.</em>
+            </h1>
+
+            <dl class="hero-meta">
+              <div><dt>Edition</dt><dd>No. I</dd></div>
+              <div><dt>Volume</dt><dd>The Twelve</dd></div>
+              <div><dt>Format</dt><dd>12 ml · glass</dd></div>
+              <div><dt>Made</dt><dd>By hand, in India</dd></div>
+            </dl>
+
+            <div class="hero-cta-row">
+              <a href="collection/" class="btn btn-primary">Open the Atlas</a>
+              <a href="story/" class="btn-link">Read the story →</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VALUE STRIP -->
-    <section class="strip">
-      <div class="container strip-grid">
-        <div><strong>100% Natural</strong><span>Pure botanical extracts</span></div>
-        <div><strong>Astrologically Crafted</strong><span>Aligned with your sign</span></div>
-        <div><strong>Alcohol-Free</strong><span>Skin-safe ittar base</span></div>
-        <div><strong>Handcrafted in India</strong><span>Small-batch quality</span></div>
-      </div>
-    </section>
-
-    <!-- ZODIACS -->
-    <section id="zodiacs" class="zodiacs">
-      <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">The Collection</p>
-          <h2>Find Your Sign</h2>
-          <p class="section-lead">Click a sign to explore its fragrance notes, ruling planet, and healing intent.</p>
-        </header>
-        <div id="zodiacGrid" class="zodiac-grid"></div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-      <div class="container about-grid">
-        <div>
-          <p class="eyebrow">Our Story</p>
-          <h2>Fragrance, guided by the stars.</h2>
-          <p>RUDRA was born from a simple belief — that scent is a quiet kind of medicine. For centuries, ittar has been used in India not only as perfume, but as ritual: to calm the mind, lift the spirit, and align the wearer with something larger than themselves.</p>
-          <p>We took that tradition and asked a new question. <em>What if a fragrance was made for you — not for the season, not for the trend, but for the energy of your sign?</em></p>
-          <p>Each RUDRA ittar is hand-blended in small batches using pure botanical extracts. No alcohol. No synthetic fillers. Just the notes most attuned to your zodiac, distilled into a 12 ml glass bottle.</p>
+    <!-- STATEMENT -->
+    <section class="statement">
+      <div class="wrap">
+        <div class="statement-inner">
+          <p>
+            <em>Twelve ittars.</em> One for every reading of the sky. Pressed by hand, sealed in glass, kept honest — a small ritual for those who still mark their days by the stars.
+            <span class="sig">— RUDRA · Pure n Natural</span>
+          </p>
         </div>
-        <div class="about-card">
-          <div class="about-card-inner">
-            <p class="brand-stamp">RUDRA</p>
-            <p class="brand-stamp-sub">PURE N NATURAL</p>
-            <p class="brand-stamp-by">by RVK Ventures</p>
+      </div>
+    </section>
+
+    <!-- FEATURED TRIO -->
+    <section class="featured">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="num">№ 01</p>
+          <div>
+            <p class="eyebrow">From the Atlas</p>
+            <h2><em>Three to begin with.</em></h2>
+          </div>
+        </header>
+
+        <div class="featured-grid">
+
+          <a class="featured-card" href="zodiacs/aries/">
+            <span class="num">№ 01 · Fire · Cardinal</span>
+            <span class="glyph">♈</span>
+            <span class="hindi" lang="hi">मेष</span>
+            <h3>Aries</h3>
+            <span class="dates">21 March — 19 April</span>
+            <p class="notes">Saffron, cinnamon, oud, cedarwood — for the trailblazer, the first to move.</p>
+            <div class="price-row">
+              <span class="price">₹650</span>
+              <span class="more">View →</span>
+            </div>
+          </a>
+
+          <a class="featured-card" href="zodiacs/leo/">
+            <span class="num">№ 05 · Fire · Fixed</span>
+            <span class="glyph">♌</span>
+            <span class="hindi" lang="hi">सिंह</span>
+            <h3>Leo</h3>
+            <span class="dates">23 July — 22 August</span>
+            <p class="notes">Amber, frankincense, kewda, gold oud — for the one the room turns toward.</p>
+            <div class="price-row">
+              <span class="price">₹650</span>
+              <span class="more">View →</span>
+            </div>
+          </a>
+
+          <a class="featured-card" href="zodiacs/pisces/">
+            <span class="num">№ 12 · Water · Mutable</span>
+            <span class="glyph">♓</span>
+            <span class="hindi" lang="hi">मीन</span>
+            <h3>Pisces</h3>
+            <span class="dates">19 February — 20 March</span>
+            <p class="notes">Sea breeze, lily, sandalwood, ambergris — for the one who dreams in colour.</p>
+            <div class="price-row">
+              <span class="price">₹650</span>
+              <span class="more">View →</span>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="text-align:center; margin-top: var(--s8);">
+          <a href="collection/" class="btn btn-ghost">See all twelve →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RITUAL TEASER -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="num">№ 02</p>
+          <div>
+            <p class="eyebrow">The Ritual</p>
+            <h2><em>A single drop, slowly.</em></h2>
+          </div>
+        </header>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--s8); align-items: center;">
+          <div>
+            <p class="lead">
+              Ittar is not perfume in a hurry. One drop on the wrist, pressed warm — not rubbed — and given a breath to settle. That is the whole ceremony.
+            </p>
+            <a href="ritual/" class="btn-link">Read the ritual guide →</a>
+          </div>
+          <div style="font-family: var(--display); font-style: italic; font-size: clamp(2rem, 4vw, 3rem); color: var(--gold); line-height: 1.2; letter-spacing: -0.01em;">
+            Pulse points.<br/>
+            Warm, don't rub.<br/>
+            Set an intention.<br/>
+            Store with care.
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- HOW TO USE -->
-    <section id="how" class="how">
-      <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">Ritual</p>
-          <h2>How to Use</h2>
-        </header>
-        <div class="how-grid">
-          <article>
-            <span class="step">01</span>
-            <h3>Pulse points</h3>
-            <p>Apply a single drop to wrists, neck, or behind the ears. Ittar is concentrated — a little goes a long way.</p>
-          </article>
-          <article>
-            <span class="step">02</span>
-            <h3>Warm, don't rub</h3>
-            <p>Press wrists gently together. Rubbing breaks the top notes — let the warmth of your skin open the fragrance.</p>
-          </article>
-          <article>
-            <span class="step">03</span>
-            <h3>Set an intention</h3>
-            <p>Pause for a breath. Let the scent meet your day with purpose — courage, calm, clarity, whatever your sign asks for.</p>
-          </article>
-          <article>
-            <span class="step">04</span>
-            <h3>Store with care</h3>
-            <p>Keep upright, away from sunlight and heat. Stored well, an ittar deepens with time — the way wine does.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-      <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">Questions</p>
-          <h2>FAQ</h2>
-        </header>
-        <div class="faq-list">
-          <details>
-            <summary>What is ittar?</summary>
-            <p>Ittar (also spelled attar) is a traditional Indian perfume oil, distilled from flowers, herbs, woods, and spices on a sandalwood or paraffin base. It is alcohol-free and far more concentrated than modern eau de parfum — meaning a single drop carries.</p>
-          </details>
-          <details>
-            <summary>Should I go by my Sun sign or Moon sign?</summary>
-            <p>Most people choose by their Sun sign — the one tied to their birth date. If you follow Vedic astrology and know your Moon sign (rashi), it often resonates more deeply. Either works. Trust the one that pulls you.</p>
-          </details>
-          <details>
-            <summary>How long does one bottle last?</summary>
-            <p>A 12 ml bottle, used daily as a single-drop ritual, lasts roughly 3–4 months. Stored upright and away from sunlight, the fragrance deepens over time rather than fading.</p>
-          </details>
-          <details>
-            <summary>Is it safe for sensitive skin?</summary>
-            <p>Our ittars are alcohol-free and use natural botanical extracts on a gentle base. As with any concentrated fragrance, we recommend a patch test on the inner forearm before regular use.</p>
-          </details>
-          <details>
-            <summary>Can I gift one to someone?</summary>
-            <p>Yes — and it's one of the most thoughtful gifts you can give. The bottle arrives with the recipient's zodiac label, ready to present. Mention "Gift" when you order and we'll wrap it accordingly.</p>
-          </details>
-          <details>
-            <summary>Do you ship across India?</summary>
-            <p>Yes, we ship pan-India. For orders, please reach us on WhatsApp or Instagram — details in the Contact section below.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div class="container contact-inner">
-        <p class="eyebrow">Order Yours</p>
-        <h2>Find your sign. Wear your stars.</h2>
-        <p class="lead">Each bottle is hand-labelled and dispatched within 2–3 working days across India. Browse the collection and choose the sign that calls to you.</p>
-        <div class="contact-ctas">
-          <a href="#zodiacs" class="btn btn-primary btn-lg">Shop the Collection</a>
-          <a href="https://instagram.com/" class="btn btn-ghost btn-lg">Follow on Instagram</a>
-        </div>
-        <p class="contact-note">12 ml &middot; ₹650 per bottle &middot; Pan-India shipping</p>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <p class="brand-name">RUDRA</p>
-        <p class="brand-sub">PURE N NATURAL</p>
-        <p class="footer-by">by RVK Ventures</p>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="brand-name">RUDRA</p>
+          <p class="brand-sub">PURE N NATURAL</p>
+          <p class="footer-by"><em>by RVK Ventures</em></p>
+          <p class="footer-fine" style="margin-top: var(--s4); max-width: 36ch;">An ittar atlas for the twelve signs of the sky. Handcrafted in India. Shipped pan-India.</p>
+        </div>
+        <div>
+          <p class="footer-head">The Atlas</p>
+          <ul>
+            <li><a href="collection/">All twelve</a></li>
+            <li><a href="story/">Story</a></li>
+            <li><a href="ritual/">Ritual</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-head">Order</p>
+          <ul>
+            <li><a href="contact/">Contact &amp; orders</a></li>
+            <li><a href="contact/#shipping">Shipping</a></li>
+            <li><a href="contact/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-head">Elsewhere</p>
+          <ul>
+            <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="mailto:hello@rudra.example">Email</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <p class="footer-head">Explore</p>
-        <ul>
-          <li><a href="#zodiacs">All 12 Zodiacs</a></li>
-          <li><a href="#about">About RUDRA</a></li>
-          <li><a href="#how">How to Use</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> RVK Ventures · All rights reserved</span>
+        <span>Handcrafted in India</span>
       </div>
-      <div>
-        <p class="footer-head">Order</p>
-        <ul>
-          <li><a href="#contact">WhatsApp</a></li>
-          <li><a href="#contact">Instagram</a></li>
-          <li><a href="#contact">Email</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-head">The fine print</p>
-        <p class="footer-fine">RUDRA ittars are wellness products inspired by traditional astrological practice. They are not intended to diagnose, treat, or cure any medical condition.</p>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="year"></span> RVK Ventures. All rights reserved.</span>
-      <span>Handcrafted in India</span>
     </div>
   </footer>
-
-  <!-- ZODIAC MODAL -->
-  <div id="zodiacModal" class="modal" hidden aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel" role="document">
-      <button class="modal-close" data-close aria-label="Close">×</button>
-      <div id="modalBody"></div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
