@@ -66,19 +66,36 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
 button { font: inherit; }
 hr { border: 0; border-top: 1px solid var(--rule); margin: var(--s8) 0; }
 
-/* Subtle paper grain on body — pure CSS, no image */
+/* Site-wide background orrery canvas (injected by orrery.js).
+   Sits behind all content; rotates with scroll. */
+.orrery-bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle paper-grain pseudo, layered ABOVE the canvas so the glyphs
+   pick up a faint gold haze in the corners. */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(181, 138, 46, 0.025) 0, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(181, 138, 46, 0.02) 0, transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(168, 137, 64, 0.06) 0, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(168, 137, 64, 0.05) 0, transparent 55%);
   mix-blend-mode: multiply;
 }
-body > * { position: relative; z-index: 1; }
+
+/* Content sits above the background + paper-grain overlay. */
+body > header,
+body > main,
+body > footer,
+body > .skip-link { position: relative; z-index: 2; }
 
 .wrap {
   max-width: var(--max);
@@ -1270,115 +1287,6 @@ p { margin: 0 0 1.1em; }
 
 /* ---------- Focus visible ---------- */
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
-/* =========================================================
-   The Orrery (3D ring of twelve)
-   ========================================================= */
-.orrery-section {
-  padding: var(--s8) 0 var(--s10);
-  position: relative;
-}
-.orrery {
-  position: relative;
-  width: 100%;
-  height: clamp(420px, 60vh, 640px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: var(--s4);
-  overflow: hidden;
-}
-.orrery-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: none;       /* hidden until JS proves 3D is ready */
-  z-index: 2;
-}
-.orrery--3d-ready .orrery-canvas {
-  display: block;
-}
-.orrery--3d-ready .orrery-fallback {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* CSS-only static fallback ring */
-.orrery-fallback {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity .4s ease;
-  z-index: 1;
-}
-.orrery-fallback-ring {
-  position: relative;
-  width: min(440px, 80vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at center, var(--white) 0%, var(--paper) 60%, var(--paper-2) 100%);
-  border: 1px solid var(--gold-soft);
-  box-shadow:
-    var(--shadow-md),
-    inset 0 0 60px rgba(181, 138, 46, 0.10);
-}
-.orrery-fallback-ring a {
-  --r: 44%;
-  position: absolute;
-  top: 50%; left: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px; height: 56px;
-  font-family: serif;
-  font-size: 1.7rem;
-  color: var(--gold);
-  text-decoration: none;
-  border-radius: 999px;
-  transition: color .2s ease, transform .25s ease, background .2s ease;
-  transform:
-    translate(-50%, -50%)
-    rotate(calc(var(--i) * 30deg))
-    translateY(calc(var(--r) * -1))
-    rotate(calc(var(--i) * -30deg));
-}
-.orrery-fallback-ring a span {
-  position: absolute;
-  bottom: -22px;
-  font-family: var(--sans);
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  opacity: 0;
-  transition: opacity .2s ease;
-  white-space: nowrap;
-}
-.orrery-fallback-ring a:hover {
-  color: var(--ink);
-  background: var(--white);
-}
-.orrery-fallback-ring a:hover span { opacity: 1; }
-.orrery-fallback-center {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 1.5rem;
-  letter-spacing: 0.18em;
-  color: var(--ink);
-  background: var(--white);
-  padding: 18px 24px;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 1px var(--gold-soft),
-    0 6px 20px rgba(31, 24, 16, 0.08);
-}
 
 /* =========================================================
    Live Carousel (collection page)
