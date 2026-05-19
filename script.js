@@ -119,18 +119,18 @@
 
   /* ---------- Live carousel (collection page) ---------- */
   const SIGNS = [
-    { key:'aries',       num:'01', name:'Aries',       hindi:'मेष',     glyph:'♈', dates:'Mar 21 — Apr 19', element:'Fire',  quality:'Cardinal', planet:'Mars',              notes:'Saffron · Cinnamon · Oud · Cedarwood' },
-    { key:'taurus',      num:'02', name:'Taurus',      hindi:'वृषभ',    glyph:'♉', dates:'Apr 20 — May 20', element:'Earth', quality:'Fixed',    planet:'Venus',             notes:'Rose · Vanilla · Sandalwood · Vetiver' },
-    { key:'gemini',      num:'03', name:'Gemini',      hindi:'मिथुन',   glyph:'♊', dates:'May 21 — Jun 20', element:'Air',   quality:'Mutable',  planet:'Mercury',           notes:'Bergamot · Lavender · Jasmine · White Musk' },
-    { key:'cancer',      num:'04', name:'Cancer',      hindi:'कर्क',    glyph:'♋', dates:'Jun 21 — Jul 22', element:'Water', quality:'Cardinal', planet:'the Moon',          notes:'Lotus · White Musk · Mogra · Sandalwood' },
-    { key:'leo',         num:'05', name:'Leo',         hindi:'सिंह',    glyph:'♌', dates:'Jul 23 — Aug 22', element:'Fire',  quality:'Fixed',    planet:'the Sun',           notes:'Amber · Frankincense · Kewda · Gold Oud' },
-    { key:'virgo',       num:'06', name:'Virgo',       hindi:'कन्या',   glyph:'♍', dates:'Aug 23 — Sep 22', element:'Earth', quality:'Mutable',  planet:'Mercury',           notes:'Vetiver · Green Tea · Mint · Sandalwood' },
-    { key:'libra',       num:'07', name:'Libra',       hindi:'तुला',    glyph:'♎', dates:'Sep 23 — Oct 22', element:'Air',   quality:'Cardinal', planet:'Venus',             notes:'Rose · Peony · White Musk · Iris' },
-    { key:'scorpio',     num:'08', name:'Scorpio',     hindi:'वृश्चिक', glyph:'♏', dates:'Oct 23 — Nov 21', element:'Water', quality:'Fixed',    planet:'Mars · Pluto',      notes:'Oud · Black Agar · Leather · Dark Amber' },
-    { key:'sagittarius', num:'09', name:'Sagittarius', hindi:'धनु',     glyph:'♐', dates:'Nov 22 — Dec 21', element:'Fire',  quality:'Mutable',  planet:'Jupiter',           notes:'Citrus · Ginger · Frankincense · Cedar' },
-    { key:'capricorn',   num:'10', name:'Capricorn',   hindi:'मकर',     glyph:'♑', dates:'Dec 22 — Jan 19', element:'Earth', quality:'Cardinal', planet:'Saturn',            notes:'Vetiver · Cypress · Oud · Leather' },
-    { key:'aquarius',    num:'11', name:'Aquarius',    hindi:'कुंभ',    glyph:'♒', dates:'Jan 20 — Feb 18', element:'Air',   quality:'Fixed',    planet:'Saturn · Uranus',   notes:'Iris · Blue Lotus · Juniper · White Musk' },
-    { key:'pisces',      num:'12', name:'Pisces',      hindi:'मीन',     glyph:'♓', dates:'Feb 19 — Mar 20', element:'Water', quality:'Mutable',  planet:'Jupiter · Neptune', notes:'Sea Breeze · Lily · Sandalwood · Ambergris' },
+    { key:'aries',       num:'01', name:'Aries',       hindi:'मेष',     glyph:'♈', sanskrit:'Mesha',      meaning:'the Ram',          element:'Fire',  quality:'Cardinal', planet:'Mars',              tagline:'For the one who moves first.' },
+    { key:'taurus',      num:'02', name:'Taurus',      hindi:'वृषभ',    glyph:'♉', sanskrit:'Vrishabha',  meaning:'the Bull',         element:'Earth', quality:'Fixed',    planet:'Venus',             tagline:'For the one who builds slowly, beautifully.' },
+    { key:'gemini',      num:'03', name:'Gemini',      hindi:'मिथुन',   glyph:'♊', sanskrit:'Mithuna',    meaning:'the Twins',        element:'Air',   quality:'Mutable',  planet:'Mercury',           tagline:'For the one with a dozen ideas before breakfast.' },
+    { key:'cancer',      num:'04', name:'Cancer',      hindi:'कर्क',    glyph:'♋', sanskrit:'Karka',      meaning:'the Crab',         element:'Water', quality:'Cardinal', planet:'the Moon',          tagline:'For the one who feels everything, deeply.' },
+    { key:'leo',         num:'05', name:'Leo',         hindi:'सिंह',    glyph:'♌', sanskrit:'Simha',      meaning:'the Lion',         element:'Fire',  quality:'Fixed',    planet:'the Sun',           tagline:'For the one the room turns toward.' },
+    { key:'virgo',       num:'06', name:'Virgo',       hindi:'कन्या',   glyph:'♍', sanskrit:'Kanya',      meaning:'the Maiden',       element:'Earth', quality:'Mutable',  planet:'Mercury',           tagline:'For the one who notices everything.' },
+    { key:'libra',       num:'07', name:'Libra',       hindi:'तुला',    glyph:'♎', sanskrit:'Tula',       meaning:'the Scales',       element:'Air',   quality:'Cardinal', planet:'Venus',             tagline:'For the one who makes a room feel even.' },
+    { key:'scorpio',     num:'08', name:'Scorpio',     hindi:'वृश्चिक', glyph:'♏', sanskrit:'Vrishchika', meaning:'the Scorpion',     element:'Water', quality:'Fixed',    planet:'Mars · Pluto',      tagline:'For the one who knows what lies beneath.' },
+    { key:'sagittarius', num:'09', name:'Sagittarius', hindi:'धनु',     glyph:'♐', sanskrit:'Dhanu',      meaning:'the Archer',       element:'Fire',  quality:'Mutable',  planet:'Jupiter',           tagline:'For the one with a passport in their pocket.' },
+    { key:'capricorn',   num:'10', name:'Capricorn',   hindi:'मकर',     glyph:'♑', sanskrit:'Makara',     meaning:'the Sea-Goat',     element:'Earth', quality:'Cardinal', planet:'Saturn',            tagline:'For the one who plays the long game.' },
+    { key:'aquarius',    num:'11', name:'Aquarius',    hindi:'कुंभ',    glyph:'♒', sanskrit:'Kumbha',     meaning:'the Water-Bearer', element:'Air',   quality:'Fixed',    planet:'Saturn · Uranus',   tagline:'For the one who sees a different future.' },
+    { key:'pisces',      num:'12', name:'Pisces',      hindi:'मीन',     glyph:'♓', sanskrit:'Meena',      meaning:'the Fish',         element:'Water', quality:'Mutable',  planet:'Jupiter · Neptune', tagline:'For the one who dreams in colour.' },
   ];
 
   const initCarousel = () => {
@@ -144,11 +144,11 @@
     const slidesHtml = SIGNS.map((s, i) => `
       <article class="live-slide" data-i="${i}">
         <span class="glyph-bg" aria-hidden="true">${s.glyph}</span>
-        <span class="num">№ ${s.num} · From the Atlas</span>
+        <span class="num">№ ${s.num} · Janma Rashi</span>
         <span class="hindi" lang="hi">${s.hindi}</span>
         <h2><em>${s.name}.</em></h2>
-        <span class="meta-row">${s.dates} · ${s.element} · ${s.quality} · ${s.planet}</span>
-        <p class="notes-row">${s.notes}</p>
+        <span class="meta-row">${s.sanskrit} · ${s.meaning} · ${s.element} · ${s.quality} · ${s.planet}</span>
+        <p class="notes-row">${s.tagline}</p>
         <div class="price-row">
           <span class="price">₹650</span>
           <span class="price-sub">12 ml · alcohol-free</span>
