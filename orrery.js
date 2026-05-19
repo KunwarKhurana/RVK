@@ -163,9 +163,9 @@ class BackgroundOrrery {
   }
 
   scrollRotation() {
-    // 1 full revolution per ~1800 px of scroll, in addition to a slow
+    // 1 full revolution per ~3600 px of scroll, in addition to a slow
     // base drift driven by elapsed time.
-    return (window.scrollY || window.pageYOffset || 0) / 1800 * Math.PI * 2;
+    return (window.scrollY || window.pageYOffset || 0) / 3600 * Math.PI * 2;
   }
 
   onResize() {
@@ -187,7 +187,7 @@ class BackgroundOrrery {
     this.lastTime = now;
 
     // Slow base drift so the ring is never frozen even when not scrolling.
-    this.targetRotation += dt * 0.04;
+    this.targetRotation += dt * 0.012;
 
     // Ease current rotation toward target
     this.rotation += (this.targetRotation - this.rotation) * 0.08;
